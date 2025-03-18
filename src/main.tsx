@@ -8,7 +8,7 @@ import AnniversaryDetail from "./AnniversaryDetail";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <Router>
+    <Router basename="/anniversary">
       <Routes>
         <Route path="/" element={<AnniversaryList />} />
         <Route path="/anniversary-list" element={<AnniversaryList />} />

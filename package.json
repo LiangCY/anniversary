@@ -1,19 +1,23 @@
 {
-  "name": "anniversary-app",
+  "name": "anniversary",
   "private": true,
   "version": "0.0.0",
+  "homepage": "https://LiangCY.github.io/anniversary",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "antd-mobile": "^5.39.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-router-dom": "^7.3.0"
+    "react-router-dom": "^7.3.0",
+    "gh-pages": "^6.1.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",
