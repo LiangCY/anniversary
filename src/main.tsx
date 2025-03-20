@@ -1,6 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Workbox } from "workbox-window";
 import "./index.css";
 
 import AnniversaryList from "./AnniversaryList";
@@ -18,3 +19,14 @@ createRoot(document.getElementById("root")!).render(
     </Router>
   </StrictMode>
 );
+
+if ("serviceWorker" in navigator) {
+  const wb = new Workbox("/anniversary/sw.js");
+  wb.register()
+    .then((registration) => {
+      console.log("Service Worker registered:", registration);
+    })
+    .catch((error) => {
+      console.error("Service Worker registration failed:", error);
+    });
+}
