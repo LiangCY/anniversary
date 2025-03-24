@@ -2,10 +2,14 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Workbox } from "workbox-window";
+import dayjs from "dayjs";
+import "dayjs/locale/zh-cn";
 import "./index.css";
 
 import AnniversaryList from "./AnniversaryList";
 import AnniversaryDetail from "./AnniversaryDetail";
+
+dayjs.locale("zh-cn");
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>

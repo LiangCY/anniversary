@@ -1,7 +1,7 @@
 import React from "react";
 import dayjs from "dayjs";
 import { useParams, useNavigate } from "react-router-dom";
-import { Input, Button, DatePicker, Dialog, Grid, Tag } from "antd-mobile";
+import { Input, Button, DatePicker, Dialog } from "antd-mobile";
 import { Anniversary } from "./types";
 
 const AnniversaryDetail: React.FC = () => {
@@ -33,23 +33,8 @@ const AnniversaryDetail: React.FC = () => {
   const [formData, setFormData] = React.useState<Omit<Anniversary, "id">>({
     title: "",
     date: Date.now(),
-    color: "#f0f9ff",
   });
 
-  const COLOR_PRESETS = [
-    "#f0f9ffa0",
-    "#f0f5ffa0",
-    "#f6ffeda0",
-    "#fff7e6a0",
-    "#fff0f6a0",
-    "#f9f0ffa0",
-    "#fffbe6a0",
-    "#ffe4e1a0",
-    "#f0fff4a0",
-    "#f5f0ffa0",
-    "#fff0f5a0",
-    "#e6fffba0",
-  ];
   const [dateVisible, setDateVisible] = React.useState(false);
   const [deleteVisible, setDeleteVisible] = React.useState(false);
 
@@ -94,29 +79,6 @@ const AnniversaryDetail: React.FC = () => {
         }
         onClose={() => setDateVisible(false)}
       />
-      <div style={{ margin: "24px 0" }}>
-        <div style={{ fontSize: "15px", color: "#666", marginBottom: 12 }}>
-          选择颜色
-        </div>
-        <Grid columns={6} gap={8}>
-          {COLOR_PRESETS.map((color) => (
-            <Grid.Item key={color}>
-              <Tag
-                style={{
-                  width: "100%",
-                  height: 40,
-                  backgroundColor: color,
-                  border:
-                    formData.color === color
-                      ? "2px solid var(--adm-color-primary)"
-                      : "none",
-                }}
-                onClick={() => setFormData({ ...formData, color })}
-              />
-            </Grid.Item>
-          ))}
-        </Grid>
-      </div>
       <Button color="primary" onClick={handleSubmit} block>
         {id ? "保存修改" : "创建纪念日"}
       </Button>

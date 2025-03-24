@@ -15,12 +15,12 @@ export default defineConfig({
         start_url: "/anniversary/",
         icons: [
           {
-            src: "/anniversary/icon-192.png",
+            src: "/anniversary/icons/icon-192.png",
             sizes: "192x192",
             type: "image/png",
           },
           {
-            src: "/anniversary/icon-512.png",
+            src: "/anniversary/icons/icon-512.png",
             type: "image/png",
             sizes: "512x512",
           },
